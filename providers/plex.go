@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
+	"github.com/oauth2-proxy/oauth2-proxy/v7/pkg/apis/options"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -12,6 +13,53 @@ import (
 	"strconv"
 	"strings"
 )
+
+// PlexProvider represents an PLEX based Identity Provider
+type PlexProvider struct {
+	*ProviderData
+}
+
+// NewPlexProvider initiates a new PlexProvider
+func NewPlexProvider(p *ProviderData, opts options.PlexOptions) *PlexProvider {
+	return nil
+}
+
+//
+//func (p *PlexProvider) Data() *ProviderData {
+//	// Implement the Data() method to return the provider-specific data
+//}
+//
+//func (p *PlexProvider) GetLoginURL(redirectURI, finalRedirect, nonce string, extraParams url.Values) string {
+//	// Implement the GetLoginURL() method to generate the login URL for your provider
+//}
+//
+//func (p *PlexProvider) Redeem(ctx context.Context, redirectURI, code, codeVerifier string) (*sessions.SessionState, error) {
+//	// Implement the Redeem() method to exchange the code for an access token and session state
+//}
+//
+//func (p *PlexProvider) GetEmailAddress(ctx context.Context, s *sessions.SessionState) (string, error) {
+//	// ToDo
+//}
+//
+//func (p *PlexProvider) EnrichSession(ctx context.Context, s *sessions.SessionState) error {
+//	// Implement the EnrichSession() method to enrich or modify the session state
+//}
+//
+//func (p *PlexProvider) Authorize(ctx context.Context, s *sessions.SessionState) (bool, error) {
+//	// Implement the Authorize() method to perform authorization checks for the session
+//}
+//
+//func (p *PlexProvider) ValidateSession(ctx context.Context, s *sessions.SessionState) bool {
+//	// Implement the ValidateSession() method to validate the session state
+//}
+//
+//func (p *PlexProvider) RefreshSession(ctx context.Context, s *sessions.SessionState) (bool, error) {
+//	// Implement the RefreshSession() method to refresh the session
+//}
+//
+//func (p *PlexProvider) CreateSessionFromToken(ctx context.Context, token string) (*sessions.SessionState, error) {
+//	// Implement the CreateSessionFromToken() method to create a session state from a token
+//}
 
 type ServersResponse struct {
 	Servers []ServersResponseServer `xml:"Server"`

@@ -45,6 +45,8 @@ type Provider struct {
 	OIDCConfig OIDCOptions `json:"oidcConfig,omitempty"`
 	// LoginGovConfig holds all configurations for LoginGov provider.
 	LoginGovConfig LoginGovOptions `json:"loginGovConfig,omitempty"`
+	// PlexConfig holds all configurations for Plex provider.
+	PlexConfig PlexOptions `json:"plexConfig,omitempty"`
 
 	// ID should be a unique identifier for the provider.
 	// This value is required for all providers.
@@ -128,6 +130,9 @@ const (
 
 	// OIDCProvider is the provider type for OIDC
 	OIDCProvider ProviderType = "oidc"
+
+	// PlexProvider is the provider type for Plex
+	PlexProvider ProviderType = "plex"
 )
 
 type KeycloakOptions struct {
@@ -237,6 +242,21 @@ type LoginGovOptions struct {
 	JWTKeyFile string `json:"jwtKeyFile,omitempty"`
 	// PubJWKURL is the JWK pubkey access endpoint
 	PubJWKURL string `json:"pubjwkURL,omitempty"`
+}
+
+type PlexOptions struct {
+	// User token of server owner
+	Token string `json:"token,omitempty"`
+	// ID of plex server
+	Id string `json:"id,omitempty"`
+	// Username of owner
+	User string `json:"user,omitempty"`
+	// If true will allow access to all friends
+	FriendAccess bool `json:"friendAccess,omitempty"`
+	// If true will allow access to all shared users of server
+	SharedAccess bool `json:"sharedAccess,omitempty"`
+	// If true will allow access to ALL PLEX USERS
+	AllAccess bool `json:"allAccess,omitempty"`
 }
 
 func providerDefaults() Providers {
